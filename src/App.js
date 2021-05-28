@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Properties } from "./comonents/Properties";
+import { ClickerButton } from "./comonents/ClickerButton";
 
-function App() {
+export function App() {
+  const [money, setMoney] = useState(0);
+  const [moneyMultiplyer, setMoneyMultiplyer] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="clicker-app">
+      <Properties
+        money={money}
+        setMoney={setMoney}
+        setMoneyMultiplyer={setMoneyMultiplyer}
+      />
+      <ClickerButton
+        money={money}
+        setMoney={setMoney}
+        moneyMultiplyer={moneyMultiplyer}
+      />
     </div>
   );
 }
-
-export default App;
